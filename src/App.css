@@ -1,0 +1,171 @@
+/* Import Google Font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+#root {
+	width: 100vw;
+}
+body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+.card-container {
+	display: flex;
+	justify-content: center;
+	height: 80vh;
+	margin-inline: 50px;
+}
+
+.container {
+	padding: 20px;
+	border-radius: 20px;
+	width: 30em;
+	height: 16em;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+	background-color: rgb(140, 0, 0);
+}
+
+header,
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row-reverse;
+	font-size: 1.3em;
+}
+
+h5 {
+	font-size: 1em;
+	font-weight: 400;
+	color: #fff;
+}
+header .chip {
+	width: 55px;
+	height: 50px;
+}
+h6 {
+	color: #fff;
+	font-size: 0.6em;
+	font-weight: 400;
+}
+h5.number {
+	margin-top: 4px;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+h5.name {
+	margin-top: 20px;
+}
+.container .card-details {
+	margin-top: 60px;
+	display: flex;
+	flex-direction: column;
+}
+
+.container .valid-date {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.card-active,
+.card-2,
+.card-3,
+.card-4 {
+	position: absolute;
+}
+
+.card-active {
+	z-index: 4;
+}
+
+.card-2 {
+	z-index: 3;
+	margin-top: 300px;
+	background-color: rgb(74, 34, 8);
+}
+
+.card-3 {
+	z-index: 2;
+	margin-top: 380px;
+	background-color: rgb(0, 87, 201);
+}
+.card-4 {
+	z-index: 1;
+	margin-top: 460px;
+	background-color: rgb(0, 73, 0);
+}
+
+.navigation {
+	height: 7vh;
+	display: flex;
+	justify-content: center;
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+}
+
+.heading {
+	font-size: 2em;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1em;
+}
+
+.subheading {
+	font-size: 0.6em;
+	display: flex;
+	justify-content: center;
+}
+
+h1 {
+	text-align: center;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-size: 16px;
+}
+
+/* Submit-knapp */
+button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	background-color: #000000;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+/* Submit-knappens hover-effekt */
+button:hover {
+	background-color: #0056b3;
+}
+
+.flex {
+	display: flex;
+	flex-direction: row;
+}
