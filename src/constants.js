@@ -5,15 +5,15 @@ export const INITIAL_CARDS = [
 		validThru: "25/07",
 		cardholder: "NELL ANDERSSON",
 		cardNumber: "",
-		CCV: "255",
+		ccv: "255",
 	},
 	{
 		id: 2,
-		vendor: "AMERICAN_EXPRESS",
+		vendor: "AMERICAN EXPRESS",
 		validThru: "25/07",
 		cardholder: "NELL ANDERSSON",
 		cardNumber: "",
-		CCV: "335",
+		ccv: "335",
 	},
 
 	{
@@ -22,7 +22,7 @@ export const INITIAL_CARDS = [
 		validThru: "25/07",
 		cardholder: "NELL ANDERSSON",
 		cardNumber: "",
-		CCV: "678",
+		ccv: "678",
 	},
 
 	{
@@ -31,6 +31,6 @@ export const INITIAL_CARDS = [
 		validThru: "25/07",
 		cardholder: "NELL ANDERSSON",
 		cardNumber: "",
-		CCV: "666",
+		ccv: "666",
 	},
 ];

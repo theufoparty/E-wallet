@@ -1,8 +1,9 @@
 import { useState } from "react";
+import Card from "./Card";
 
-const AddCard = () => {
+const AddCard = ({ addCard }) => {
 	const [cardInfo, setCardInfo] = useState({
-		vendor: "",
+		vendor: "VISA",
 		cardNumber: "",
 		cardholder: "",
 		validThru: "",
@@ -19,11 +20,23 @@ const AddCard = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		addCard(cardInfo);
 	};
 
 	return (
 		<div>
 			<div className="heading">ADD CARD</div>
+			<div className="subheading">NEW CARD</div>
+
+			<div style={{ display: "flex", justifyContent: "center" }}>
+				<Card
+					cardholder={cardInfo.cardholder}
+					vendor={cardInfo.vendor}
+					validThru={cardInfo.validThru}
+					ccv={cardInfo.ccv}
+					cardNumber={cardInfo.cardNumber}
+				/>
+			</div>
 			<form onSubmit={handleSubmit}>
 				<div>
 					<label htmlFor="cardNumber">CARD NUMBER</label>
@@ -49,9 +62,9 @@ const AddCard = () => {
 				</div>
 				<div className="flex">
 					<div className="flex-row">
-						<label htmlFor="validThru">VALID TRHU</label>
+						<label htmlFor="validThru">VALID THRU</label>
 						<input
-							type="text"
+							type="month"
 							id="validThru"
 							name="validThru"
 							value={cardInfo.validThru}
@@ -82,9 +95,10 @@ const AddCard = () => {
 						required
 					>
 						<option value="">SELECT A VENDOR</option>
-						<option value="Visa">Visa</option>
-						<option value="Mastercard">Mastercard</option>
-						<option value="American Express">American Express</option>
+						<option value="VISA">Visa</option>
+						<option value="MASTERCARD">Mastercard</option>
+						<option value="AMERICAN EXPRESS">American Express</option>
+						<option value="KLARNA">Klarna</option>
 					</select>
 				</div>
 				<button type="submit">ADD</button>

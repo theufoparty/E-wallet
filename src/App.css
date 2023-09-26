@@ -6,6 +6,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Poppins", sans-serif;
+	text-transform: uppercase;
 }
 
 #root {
@@ -20,8 +21,9 @@ body {
 .card-container {
 	display: flex;
 	justify-content: center;
-	height: 80vh;
-	margin-inline: 50px;
+	height: fit-content;
+	flex-direction: column;
+	align-items: center;
 }
 
 .container {
@@ -76,7 +78,6 @@ h5.name {
 }
 
 .navigation {
-	height: 7vh;
 	display: flex;
 	justify-content: center;
 }
@@ -111,6 +112,7 @@ label {
 
 input {
 	width: 100%;
+	height: 2.8rem;
 	padding: 0.6rem;
 	margin-bottom: 15px;
 	border: 1px solid #ccc;
@@ -166,4 +168,8 @@ option {
 form {
 	margin-inline: 16rem;
 	margin-block: 5rem;
+}
+
+.card-active {
+	margin-bottom: 12rem;
 }

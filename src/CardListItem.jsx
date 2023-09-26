@@ -11,9 +11,9 @@ const CardListItem = ({ cardData, index, listLength, onClick }) => {
 			onClick={onClick}
 			key={index}
 			style={{
-				position: "absolute",
 				zIndex: isHovered ? listLength : listLength - index,
-				marginTop: 300 + index * 80,
+				marginTop: -150,
+				position: "relative",
 				borderRadius: "20px",
 			}}
 		>
