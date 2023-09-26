@@ -1,107 +1,59 @@
-import React, { useState } from "react";
+import Card from "./Card";
+import CardListItem from "./CardListItem";
 
 const CardList = () => {
+	const activeCard = {
+		color: "#040D12",
+		vendor: "VISA",
+		expirationDate: "25/07",
+		cardholder: "NELL ANDERSSON",
+	};
+	const inactiveCards = [
+		{
+			color: "#183D3D",
+			vendor: "VISA",
+			expirationDate: "25/07",
+			cardholder: "NELL ANDERSSON",
+		},
+
+		{
+			color: "#5C8374",
+			vendor: "VISA",
+			expirationDate: "25/07",
+			cardholder: "NELL ANDERSSON",
+		},
+
+		{
+			color: "#93B1A6",
+			vendor: "VISA",
+			expirationDate: "25/07",
+			cardholder: "NELL ANDERSSON",
+		},
+	];
+
 	return (
 		<div>
 			<div className="heading">E-WALLET</div>
 			<div className="subheading">ACTIVE CARD</div>
 			<div className="card-container">
-				<div className="container card-active">
-					<header>
-						<span className="logo">
-							<h5>Master Card</h5>
-						</span>
-						<img src={"/public/chip.png"} alt="" className="chip" />
-					</header>
-					<div className="card-details">
-						<div className="name-number">
-							<h6>CARD NUMBER</h6>
-							<h5 className="number">8050 5040 2030 3020</h5>
-						</div>
-						<div className="valid-date">
-							<div className="cardholder">
-								<h6>CARDHOLDER</h6>
-								<h5>Nell Andersson</h5>
-							</div>
-							<div className="valid-thru">
-								<h6>VALID THRU</h6>
-								<h5>05/28</h5>
-							</div>
-						</div>
-					</div>
+				<div className="card-active">
+					<Card
+						color={activeCard.color}
+						vendor={activeCard.vendor}
+						expirationDate={activeCard.expirationDate}
+						cardholder={activeCard.cardholder}
+					/>
 				</div>
-				<div className="container card-2">
-					<header>
-						<span className="logo">
-							<h5>Master Card</h5>
-						</span>
-						<img src={"/public/chip.png"} alt="" className="chip" />
-					</header>
-					<div className="card-details">
-						<div className="name-number">
-							<h6>CARD NUMBER</h6>
-							<h5 className="number">8050 5040 2030 3020</h5>
-						</div>
-						<div className="valid-date">
-							<div className="cardholder">
-								<h6>CARDHOLDER</h6>
-								<h5>Nell Andersson</h5>
-							</div>
-							<div className="valid-thru">
-								<h6>VALID THRU</h6>
-								<h5>05/28</h5>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="container card-3">
-					<header>
-						<span className="logo">
-							<h5>Master Card</h5>
-						</span>
-						<img src={"/public/chip.png"} alt="" className="chip" />
-					</header>
-					<div className="card-details">
-						<div className="name-number">
-							<h6>CARD NUMBER</h6>
-							<h5 className="number">8050 5040 2030 3020</h5>
-						</div>
-						<div className="valid-date">
-							<div className="cardholder">
-								<h6>CARDHOLDER</h6>
-								<h5>Nell Andersson</h5>
-							</div>
-							<div className="valid-thru">
-								<h6>VALID THRU</h6>
-								<h5>05/28</h5>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="container card-4">
-					<header>
-						<span className="logo">
-							<h5>Master Card</h5>
-						</span>
-						<img src={"/public/chip.png"} alt="" className="chip" />
-					</header>
-					<div className="card-details">
-						<div className="name-number">
-							<h6>CARD NUMBER</h6>
-							<h5 className="number">8050 5040 2030 3020</h5>
-						</div>
-						<div className="valid-date">
-							<div className="cardholder">
-								<h6>CARDHOLDER</h6>
-								<h5>Nell Andersson</h5>
-							</div>
-							<div className="valid-thru">
-								<h6>VALID THRU</h6>
-								<h5>05/28</h5>
-							</div>
-						</div>
-					</div>
-				</div>
+				{inactiveCards.map((cardData, index) => {
+					return (
+						<CardListItem
+							key={index}
+							cardData={cardData}
+							index={index}
+							listLength={inactiveCards.length}
+						/>
+					);
+				})}
 			</div>
 		</div>
 	);
