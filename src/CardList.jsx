@@ -1,35 +1,12 @@
+import { useState } from "react";
 import Card from "./Card";
 import CardListItem from "./CardListItem";
 
-const CardList = () => {
-	const activeCard = {
-		color: "#040D12",
-		vendor: "VISA",
-		expirationDate: "25/07",
-		cardholder: "NELL ANDERSSON",
-	};
-	const inactiveCards = [
-		{
-			color: "#183D3D",
-			vendor: "VISA",
-			expirationDate: "25/07",
-			cardholder: "NELL ANDERSSON",
-		},
+const CardList = ({ cards }) => {
+	const [activeCardID, setActiveCardID] = useState(1);
 
-		{
-			color: "#5C8374",
-			vendor: "VISA",
-			expirationDate: "25/07",
-			cardholder: "NELL ANDERSSON",
-		},
-
-		{
-			color: "#93B1A6",
-			vendor: "VISA",
-			expirationDate: "25/07",
-			cardholder: "NELL ANDERSSON",
-		},
-	];
+	const activeCard = cards.find((card) => card.id === activeCardID);
+	const inactiveCards = cards.filter((card) => card.id !== activeCardID);
 
 	return (
 		<div>
@@ -40,7 +17,7 @@ const CardList = () => {
 					<Card
 						color={activeCard.color}
 						vendor={activeCard.vendor}
-						expirationDate={activeCard.expirationDate}
+						validThru={activeCard.validThru}
 						cardholder={activeCard.cardholder}
 					/>
 				</div>
@@ -48,6 +25,7 @@ const CardList = () => {
 					return (
 						<CardListItem
 							key={index}
+							onClick={() => setActiveCardID(cardData.id)}
 							cardData={cardData}
 							index={index}
 							listLength={inactiveCards.length}

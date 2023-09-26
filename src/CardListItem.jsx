@@ -1,26 +1,26 @@
 import { useState } from "react";
 import Card from "./Card";
 
-const CardListItem = ({ cardData, index, listLength }) => {
+const CardListItem = ({ cardData, index, listLength, onClick }) => {
 	const [isHovered, setIsHovered] = useState(false);
 
 	return (
 		<div
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
+			onClick={onClick}
 			key={index}
 			style={{
 				position: "absolute",
 				zIndex: isHovered ? listLength : listLength - index,
 				marginTop: 300 + index * 80,
-				boxShadow: "rgb(0, 0, 0, 0.3) 2px 2px 8px 10px",
 				borderRadius: "20px",
 			}}
 		>
 			<Card
 				color={cardData.color}
 				vendor={cardData.vendor}
-				expirationDate={cardData.expirationDate}
+				validThru={cardData.validThru}
 				cardholder={cardData.cardholder}
 			/>
 		</div>

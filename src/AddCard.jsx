@@ -23,10 +23,10 @@ const AddCard = () => {
 
 	return (
 		<div>
-			<h1>Add Card</h1>
+			<div className="heading">ADD CARD</div>
 			<form onSubmit={handleSubmit}>
 				<div>
-					<label htmlFor="cardNumber">Card Number:</label>
+					<label htmlFor="cardNumber">CARD NUMBER</label>
 					<input
 						type="text"
 						id="cardNumber"
@@ -37,7 +37,7 @@ const AddCard = () => {
 					/>
 				</div>
 				<div>
-					<label htmlFor="cardholder">Cardholder:</label>
+					<label htmlFor="cardholder">CARDHOLDER</label>
 					<input
 						type="text"
 						id="cardholder"
@@ -48,29 +48,32 @@ const AddCard = () => {
 					/>
 				</div>
 				<div className="flex">
-					<label htmlFor="validThru">Valid Thru</label>
-					<input
-						type="text"
-						id="validThru"
-						name="validThru"
-						value={cardInfo.validThru}
-						onChange={handleInputChange}
-						required
-					/>
-
-					<label htmlFor="ccv">CCV:</label>
-					<input
-						type="text"
-						id="ccv"
-						name="ccv"
-						value={cardInfo.ccv}
-						onChange={handleInputChange}
-						required
-					/>
+					<div className="flex-row">
+						<label htmlFor="validThru">VALID TRHU</label>
+						<input
+							type="text"
+							id="validThru"
+							name="validThru"
+							value={cardInfo.validThru}
+							onChange={handleInputChange}
+							required
+						/>
+					</div>
+					<div className="flex-row">
+						<label htmlFor="ccv">CCV</label>
+						<input
+							type="text"
+							id="ccv"
+							name="ccv"
+							value={cardInfo.ccv}
+							onChange={handleInputChange}
+							required
+						/>
+					</div>
 				</div>
 
 				<div>
-					<label htmlFor="vendor">Vendor:</label>
+					<label htmlFor="vendor">VENDOR</label>
 					<select
 						id="vendor"
 						name="vendor"
@@ -78,13 +81,13 @@ const AddCard = () => {
 						onChange={handleInputChange}
 						required
 					>
-						<option value="">Select a vendor</option>
+						<option value="">SELECT A VENDOR</option>
 						<option value="Visa">Visa</option>
 						<option value="Mastercard">Mastercard</option>
 						<option value="American Express">American Express</option>
 					</select>
 				</div>
-				<button type="submit">Save Card</button>
+				<button type="submit">ADD</button>
 			</form>
 		</div>
 	);
