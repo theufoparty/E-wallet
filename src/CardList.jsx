@@ -1,14 +1,10 @@
 import { useState } from "react";
 import Card from "./Card";
 import CardListItem from "./CardListItem";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CardList = ({ cards, removeCard }) => {
 	const [activeCardID, setActiveCardID] = useState(cards[0].id);
-	const navigate = useNavigate();
-	if (!activeCardID) {
-		navigate("/addcard");
-	}
 	const activeCard = cards.find((card) => card.id === activeCardID);
 
 	return (
@@ -31,18 +27,17 @@ const CardList = ({ cards, removeCard }) => {
 								background: "none",
 								border: "1px solid black",
 								borderRadius: 4,
-								cursor: "pointer",
+								cursor: cards.length === 1 ? "not-allowed" : "pointer",
 							}}
 							onClick={() => {
-								removeCard(activeCardID);
-								const inactiveCards = cards.filter((c) => c.id !== activeCardID);
-								const newActiveCard = inactiveCards[0];
-								if (newActiveCard) {
+								if (cards.length > 1) {
+									removeCard(activeCardID);
+									const inactiveCards = cards.filter((c) => c.id !== activeCardID);
+									const newActiveCard = inactiveCards[0];
 									setActiveCardID(newActiveCard.id);
-								} else {
-									navigate("/addcard");
 								}
 							}}
+							disabled={cards.length === 1}
 						>
 							remove card
 						</button>

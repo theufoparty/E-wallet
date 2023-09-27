@@ -16,7 +16,7 @@ const CardListItem = ({ cardData, index, listLength, onClick, activeCardID }) =>
 				position: "relative",
 				transition: "transform 1s",
 				cursor: activeCardID === cardData.id ? "default" : "pointer",
-				transform: `translateX(${isHovered ? 150 : 0}px)`,
+				transform: `translateX(${isHovered && index !== 0 ? 150 : 0}px)`,
 				borderRadius: "20px",
 				filter: `brightness(${activeCardID === cardData.id ? "50%" : "100%"})`,
 			}}

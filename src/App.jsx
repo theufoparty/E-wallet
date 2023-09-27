@@ -5,11 +5,18 @@ import AddCard from "./AddCard";
 import { useState } from "react";
 import { INITIAL_CARDS } from "./constants";
 
+const generateNewId = (cards) => {
+	const currentIds = cards.map((card) => card.id);
+	const maxId = Math.max(...currentIds);
+	const newId = maxId + 1;
+	return newId;
+};
+
 function App() {
 	const [cards, setCards] = useState(INITIAL_CARDS);
 
 	const addCard = (card) => {
-		const newCard = { ...card, id: cards.length + 1 };
+		const newCard = { ...card, id: generateNewId(cards) };
 		setCards([...cards, newCard]);
 	};
 
