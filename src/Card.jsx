@@ -8,12 +8,20 @@ const vendorColors = {
 		"linear-gradient(145deg, rgb(255, 151, 202 ) 25%, rgb(255, 78, 164 ) 65%, rgb(255, 0, 123 ) 100%)",
 };
 
-const Card = ({ vendor, validThru, cardholder }) => {
+const formatCardNumber = (cardNumber) =>
+	cardNumber
+		.split("")
+		.map((c, i) => ((i + 1) % 4 === 0 ? `${c} ` : c))
+		.join("");
+
+const formatValidThru = (validThru) => validThru.slice(2).replace("-", "/");
+
+const Card = ({ vendor, validThru, cardholder, cardNumber }) => {
 	return (
 		<div
 			className="container"
 			style={{
-				background: vendorColors[vendor],
+				background: vendorColors[vendor] || "black",
 			}}
 		>
 			<header>
@@ -25,7 +33,7 @@ const Card = ({ vendor, validThru, cardholder }) => {
 			<div className="card-details">
 				<div className="name-number">
 					<h6>CARD NUMBER</h6>
-					<h5 className="number">8050 5040 2030 3020</h5>
+					<h5 className="number">{formatCardNumber(cardNumber)}</h5>
 				</div>
 				<div className="valid-date">
 					<div className="cardholder">
@@ -34,7 +42,7 @@ const Card = ({ vendor, validThru, cardholder }) => {
 					</div>
 					<div className="valid-thru">
 						<h6>VALID THRU</h6>
-						<h5>{validThru}</h5>
+						<h5>{formatValidThru(validThru)}</h5>
 					</div>
 				</div>
 			</div>
